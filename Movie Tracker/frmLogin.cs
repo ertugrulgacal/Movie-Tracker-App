@@ -40,7 +40,7 @@ namespace Movie_Tracker
 
                 string loginSql = "SELECT * FROM TableUsers WHERE username= '" + logUsername.Text + "' and user_password= '" + logPassword.Text + "'";
 
-                SqlCommand sqlCom = new SqlCommand(loginSql);
+                SqlCommand sqlCom = new SqlCommand(loginSql, con);
                 SqlDataReader sqlDr = sqlCom.ExecuteReader();
 
                 if (sqlDr.Read() == true)

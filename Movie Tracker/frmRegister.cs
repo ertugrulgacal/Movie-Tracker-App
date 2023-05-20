@@ -53,7 +53,8 @@ namespace Movie_Tracker
 
                     string registerSql = "INSERT INTO TableUsers (username, user_password) VALUES ('" + regUsername.Text + "','" + regPassword.Text + "')";
 
-                    SqlCommand sqlCom = new SqlCommand(registerSql);
+                    SqlCommand sqlCom = new SqlCommand(registerSql, con);
+                    sqlCom.ExecuteNonQuery();
 
                     regUsername.Text = "";
                     regPassword.Text = "";
