@@ -9,51 +9,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Movie_Tracker
+namespace MovieReviewFormApp
 {
     public partial class frmLogin : Form
     {
+        SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-PO7LRD3\SQLEXPRESS01;Initial Catalog=MovieReviewApp;Integrated Security=True");
+
         public frmLogin()
         {
             InitializeComponent();
         }
-
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KB41T07;Initial Catalog=DbMovieTracker;Integrated Security=True");
-
-        private void CheckbxShowPas_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CheckbxShowPas.Checked)
-            {
-                logPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                logPassword.PasswordChar = '•';
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                con.Open();
+                sqlCon.Open();
 
-                string loginSql = "SELECT * FROM TableUsers WHERE username= '" + logUsername.Text + "' and user_password= '" + logPassword.Text + "'";
+                string sqlQuery = "SELECT * FROM Users WHERE username= '" + txtLogUsername.Text + "' and password= '" + txtLogPassword.Text + "'";
 
-                SqlCommand sqlCom = new SqlCommand(loginSql, con);
+                SqlCommand sqlCom = new SqlCommand(sqlQuery, sqlCon);
                 SqlDataReader sqlDr = sqlCom.ExecuteReader();
 
                 if (sqlDr.Read() == true)
                 {
-                    new MainForm().Show();
+                    new frmHome().Show();
                     this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    logUsername.Text = "";
-                    logPassword.Text = "";
-                    logUsername.Focus();
+                    txtLogUsername.Text = "";
+                    txtLogPassword.Text = "";
+                    txtLogUsername.Focus();
                 }
             }
             catch (Exception ex)
@@ -62,10 +49,22 @@ namespace Movie_Tracker
             }
             finally
             {
-                if (con != null)
+                if (sqlCon != null)
                 {
-                    con.Close();
+                    sqlCon.Close();
                 }
+            }
+        }
+
+        private void checkboxShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkboxShowPass.Checked)
+            {
+                txtLogPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtLogPassword.PasswordChar = '•';
             }
         }
 
@@ -73,6 +72,13 @@ namespace Movie_Tracker
         {
             new frmRegister().Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtLogUsername.Text = "";
+            txtLogPassword.Text = "";
+            txtLogUsername.Focus();
         }
     }
 }

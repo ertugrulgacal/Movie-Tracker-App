@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Movie_Tracker.Forms
+namespace MovieReviewFormApp
 {
-    public partial class FormTest : Form
+    public partial class frmHome : Form
     {
-        public FormTest()
+        public frmHome()
         {
             InitializeComponent();
         }
