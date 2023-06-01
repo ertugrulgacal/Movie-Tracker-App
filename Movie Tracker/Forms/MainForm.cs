@@ -1,3 +1,4 @@
+using Movie_Tracker.User_Controls;
 using System.Runtime.InteropServices;
 
 namespace Movie_Tracker;
@@ -5,7 +6,7 @@ namespace Movie_Tracker;
 public partial class MainForm : Form
 {
     private Button currentButton;
-    private Form activeForm;
+    //private Form activeForm;
 
     public MainForm()
     {
@@ -14,6 +15,14 @@ public partial class MainForm : Form
         this.ControlBox = false;
         this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
     }
+    public void addUserControl(UserControl userControl)
+    {
+        userControl.Dock = DockStyle.Fill;
+        panelDesktopPane.Controls.Clear();
+        panelDesktopPane.Controls.Add(userControl);
+        userControl.BringToFront();
+    }
+
     [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
     private extern static void ReleaseCapture();
 
@@ -49,7 +58,7 @@ public partial class MainForm : Form
         }
     }
 
-    private void OpenChildForm(Form childForm, object btnSender)
+    /*private void OpenChildForm(Form childForm, object btnSender)
     {
         if (activeForm != null)
         {
@@ -65,31 +74,35 @@ public partial class MainForm : Form
         childForm.BringToFront();
         childForm.Show();
         menuTitle.Text = childForm.Text;
-    }
+    }*/
 
     private void button1_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new Forms.FormTest(), sender);
+        //OpenChildForm(new Forms.FormTest(), sender);
+        ListMovies uc = new ListMovies();
+        addUserControl(uc);
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new Forms.FormTest(), sender);
+        //OpenChildForm(new Forms.FormTest(), sender);
     }
 
     private void button3_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new Forms.FormTest(), sender);
+        //OpenChildForm(new Forms.FormTest(), sender);
     }
 
     private void button4_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new Forms.FormTest(), sender);
+        //OpenChildForm(new Forms.FormTest(), sender);
     }
 
     private void button5_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new Forms.FormTest(), sender);
+        //OpenChildForm(new Forms.FormTest(), sender);
+        ListMovies uc = new ListMovies();
+        addUserControl(uc);
     }
 
     private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
