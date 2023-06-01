@@ -78,7 +78,8 @@ namespace Movie_Tracker.User_Controls
         private void navigateToMovie(object sender, EventArgs e, string id)
         {
             MoviePage uc = new MoviePage(Int16.Parse(id));
-            Program.Form.addUserControl(uc);
+            var mainForm = Application.OpenForms.OfType<MainForm>().Single();
+            mainForm.addUserControl(uc);
         }
     }
 }

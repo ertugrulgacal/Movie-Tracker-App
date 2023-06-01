@@ -38,7 +38,7 @@ namespace Movie_Tracker
             {
                 con.Open();
 
-                string loginSql = "SELECT * FROM TableUsers WHERE username= '" + logUsername.Text + "' and user_password= '" + logPassword.Text + "'";
+                string loginSql = "SELECT user_id FROM TableUser WHERE username= '" + logUsername.Text + "' and user_password= '" + logPassword.Text + "'";
 
                 SqlCommand sqlCom = new SqlCommand(loginSql, con);
                 SqlDataReader sqlDr = sqlCom.ExecuteReader();
@@ -47,6 +47,7 @@ namespace Movie_Tracker
                 {
                     new MainForm().Show();
                     this.Hide();
+                    Program.userID = sqlDr[0].ToString();
                 }
                 else
                 {

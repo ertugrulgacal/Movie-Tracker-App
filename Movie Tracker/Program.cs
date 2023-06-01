@@ -5,7 +5,7 @@ static class Program
     /// <summary>
     ///  The main entry point for the application.
     /// </summary>
-    public static MainForm Form;
+    public static string userID;
 
     [STAThread]
     static void Main()
@@ -13,7 +13,6 @@ static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        Form = new MainForm();
-        Application.Run(Form);
+        Application.Run(new frmLogin());
     }    
 }
