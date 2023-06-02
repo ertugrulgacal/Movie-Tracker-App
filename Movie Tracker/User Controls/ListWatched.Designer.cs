@@ -1,6 +1,6 @@
 ﻿namespace Movie_Tracker.User_Controls
 {
-    partial class ListMovies
+    partial class ListWatched
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             SuspendLayout();
             // 
-            // ListMovies
+            // ListWatched
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            Name = "ListMovies";
+            Name = "ListWatched";
             Size = new Size(700, 425);
             Load += FormTest_Load;
             ResumeLayout(false);

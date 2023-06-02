@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Movie_Tracker.User_Controls
 {
-    public partial class ListMovies : UserControl
+    public partial class ListWatched : UserControl
     {
-        public ListMovies()
+        public ListWatched()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace Movie_Tracker.User_Controls
             try
             {
                 con.Open();
-                string sqlQuery = "Select mov_id,mov_poster from TableMovie";
+                string sqlQuery = "Select TableWatchedlist.mov_id,mov_poster from TableWatchedlist INNER JOIN TableMovie ON TableWatchedlist.mov_id = TableMovie.mov_id WHERE user_id = " + Program.userID;
                 SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
                 SqlDataReader sqlDR = sqlCommand.ExecuteReader();
 

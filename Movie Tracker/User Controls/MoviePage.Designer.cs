@@ -99,7 +99,7 @@
             movieUserWatched.TabIndex = 6;
             movieUserWatched.Text = "WATCHED";
             movieUserWatched.UseVisualStyleBackColor = true;
-            movieUserWatched.CheckedChanged += checkBox1_CheckedChanged;
+            movieUserWatched.MouseClick += checkBox1_CheckedChanged;
             // 
             // movieUserWatchlist
             // 
@@ -112,6 +112,7 @@
             movieUserWatchlist.TabIndex = 7;
             movieUserWatchlist.Text = "WATCHLIST";
             movieUserWatchlist.UseVisualStyleBackColor = true;
+            movieUserWatchlist.MouseClick += checkBox2_CheckedChanged;
             // 
             // movieUserRating
             // 
@@ -133,7 +134,7 @@
             Controls.Add(movieDesc);
             Controls.Add(moviePoster);
             Name = "MoviePage";
-            Size = new Size(700, 425);
+            Size = new Size(700, 408);
             Load += FormTest_Load;
             ((System.ComponentModel.ISupportInitialize)moviePoster).EndInit();
             ((System.ComponentModel.ISupportInitialize)movieUserRating).EndInit();

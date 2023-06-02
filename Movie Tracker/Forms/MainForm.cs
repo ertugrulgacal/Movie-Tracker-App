@@ -81,28 +81,33 @@ public partial class MainForm : Form
         //OpenChildForm(new Forms.FormTest(), sender);
         ListMovies uc = new ListMovies();
         addUserControl(uc);
+        menuTitle.Text = "HOME";
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
         //OpenChildForm(new Forms.FormTest(), sender);
+        ListWatched uc = new ListWatched();
+        addUserControl(uc);
+        menuTitle.Text = "HISTORY";
     }
 
     private void button3_Click(object sender, EventArgs e)
     {
         //OpenChildForm(new Forms.FormTest(), sender);
+        listWatchlist uc = new listWatchlist();
+        addUserControl(uc);
+        menuTitle.Text = "WATCHLIST";
     }
 
     private void button4_Click(object sender, EventArgs e)
     {
-        //OpenChildForm(new Forms.FormTest(), sender);
+        menuTitle.Text = "FRIENDS";
     }
 
     private void button5_Click(object sender, EventArgs e)
     {
-        //OpenChildForm(new Forms.FormTest(), sender);
-        ListMovies uc = new ListMovies();
-        addUserControl(uc);
+        menuTitle.Text = "SETTINGS";
     }
 
     private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)

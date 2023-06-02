@@ -125,7 +125,7 @@ partial class MainForm
         button2.Padding = new Padding(11, 0, 0, 0);
         button2.Size = new Size(220, 60);
         button2.TabIndex = 2;
-        button2.Text = " Profile";
+        button2.Text = " History";
         button2.TextAlign = ContentAlignment.MiddleLeft;
         button2.UseVisualStyleBackColor = true;
         button2.Click += button2_Click;
