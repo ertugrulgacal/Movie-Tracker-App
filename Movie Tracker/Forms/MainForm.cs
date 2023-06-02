@@ -110,6 +110,13 @@ public partial class MainForm : Form
         menuTitle.Text = "SETTINGS";
     }
 
+    private void searchBar_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        ListSearchedMovies uc = new ListSearchedMovies(searchBar.Text);
+        addUserControl(uc);
+        menuTitle.Text = "SEARCH";
+    }
+
     private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
     {
         ReleaseCapture();
@@ -137,4 +144,6 @@ public partial class MainForm : Form
     {
         this.WindowState |= FormWindowState.Minimized;
     }
+
+    
 }

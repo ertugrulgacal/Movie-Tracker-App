@@ -42,6 +42,7 @@ partial class MainForm
         btnClose = new Button();
         menuTitle = new Label();
         panelDesktopPane = new Panel();
+        searchBar = new TextBox();
         panelMenu.SuspendLayout();
         panelLogo.SuspendLayout();
         panelTitleBar.SuspendLayout();
@@ -171,6 +172,7 @@ partial class MainForm
         // panelTitleBar
         // 
         panelTitleBar.BackColor = Color.BlueViolet;
+        panelTitleBar.Controls.Add(searchBar);
         panelTitleBar.Controls.Add(btnFullscreen);
         panelTitleBar.Controls.Add(btnMinimize);
         panelTitleBar.Controls.Add(btnClose);
@@ -244,6 +246,16 @@ partial class MainForm
         panelDesktopPane.Size = new Size(700, 425);
         panelDesktopPane.TabIndex = 2;
         // 
+        // searchBar
+        // 
+        searchBar.ForeColor = SystemColors.ControlDarkDark;
+        searchBar.Location = new Point(482, 48);
+        searchBar.Name = "searchBar";
+        searchBar.PlaceholderText = "Search for a movie";
+        searchBar.Size = new Size(206, 23);
+        searchBar.TabIndex = 4;
+        searchBar.KeyPress += searchBar_KeyPress;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -278,4 +290,5 @@ partial class MainForm
     private Button btnFullscreen;
     private Button btnMinimize;
     private Button btnClose;
+    private TextBox searchBar;
 }
