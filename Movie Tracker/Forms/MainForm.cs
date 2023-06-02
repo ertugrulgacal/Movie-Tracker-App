@@ -144,6 +144,4 @@ public partial class MainForm : Form
     {
         this.WindowState |= FormWindowState.Minimized;
     }
-
-    
 }
