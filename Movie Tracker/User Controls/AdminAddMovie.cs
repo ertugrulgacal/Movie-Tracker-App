@@ -15,7 +15,8 @@ namespace Movie_Tracker.User_Controls
 {
     public partial class AdminAddMovie : UserControl
     {
-        private string _id;
+        private string _movieID;
+        private string _directorID;
 
         public AdminAddMovie()
         {
@@ -38,6 +39,7 @@ namespace Movie_Tracker.User_Controls
         {
             SaveMovie();
             GetMovieID();
+            AddDirector();
             SaveGenres();
         }
 
@@ -48,7 +50,7 @@ namespace Movie_Tracker.User_Controls
                 con.Open();
                 string sqlQuery = "INSERT INTO TableMovie (mov_title, mov_desc, mov_year, mov_length, mov_lang, mov_poster, vote_average, vote_count) VALUES ('" + movTitle.Text + "','" + movDesc.Text + "','" + int.Parse(movYear.Text) + "','" + int.Parse(movLength.Text) + "','" + movLanguage.Text + "','" + movPoster.Text + "','0','0')";
                 SqlCommand sqlCom = new SqlCommand(sqlQuery, con);
-                sqlCom.ExecuteNonQuery();          
+                sqlCom.ExecuteNonQuery();
 
                 MessageBox.Show("Successfully added movie", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -64,6 +66,17 @@ namespace Movie_Tracker.User_Controls
                 }
                 this.Hide();
             }
+        }
+
+        private void AddDirector()
+        {
+            if (!DirectorAlreadyExists())
+            {
+                AddNewDirector();
+            }
+
+            GetDirectorID();
+            AddMovieDirection();
         }
 
         private void SaveGenres()
@@ -123,7 +136,7 @@ namespace Movie_Tracker.User_Controls
             try
             {
                 con.Open();
-                string sqlQuery = "INSERT INTO TableMovieGenre (mov_id, gen_id) VALUES ('" + Int16.Parse(_id) + "','" + Int16.Parse(genreID) + "')";
+                string sqlQuery = "INSERT INTO TableMovieGenre (mov_id, gen_id) VALUES ('" + Int16.Parse(_movieID) + "','" + Int16.Parse(genreID) + "')";
                 SqlCommand sqlCom = new SqlCommand(sqlQuery, con);
                 sqlCom.ExecuteNonQuery();
             }
@@ -138,6 +151,105 @@ namespace Movie_Tracker.User_Controls
                     con.Close();
                 }
                 this.Hide();
+            }
+        }
+
+        private void AddNewDirector()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "INSERT INTO TableDirector (dir_name) VALUES ('" + movDirector.Text + "')";
+                SqlCommand sqlCom = new SqlCommand(sqlQuery, con);
+                sqlCom.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        private void AddMovieDirection()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "INSERT INTO TableMovieDirection (dir_id, mov_id) VALUES ('" + Int16.Parse(_directorID) + "','" + Int16.Parse(_movieID) + "')";
+                SqlCommand sqlCom = new SqlCommand(sqlQuery, con);
+                sqlCom.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+                MessageBox.Show(_directorID);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+                this.Hide();
+            }
+        }
+
+        private bool DirectorAlreadyExists()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "Select dir_id from TableDirector WHERE dir_name='" + movDirector.Text + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                return sqlDR.Read();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return false;
+        }
+
+        private void GetDirectorID()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "Select dir_id from TableDirector WHERE dir_name='" + movDirector.Text + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                while (sqlDR.Read())
+                {
+                    _directorID = sqlDR[0].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
             }
         }
 
@@ -181,7 +293,7 @@ namespace Movie_Tracker.User_Controls
 
                 while (sqlDR.Read())
                 {
-                    _id = sqlDR[0].ToString();
+                    _movieID = sqlDR[0].ToString();
                 }
 
             }

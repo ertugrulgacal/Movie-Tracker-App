@@ -41,6 +41,9 @@
             movieReviewCount = new TextBox();
             label1 = new Label();
             genresTextBox = new RichTextBox();
+            label2 = new Label();
+            label3 = new Label();
+            directorTextBox = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)moviePoster).BeginInit();
             SuspendLayout();
             // 
@@ -150,9 +153,9 @@
             movieName.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             movieName.Location = new Point(179, 20);
             movieName.Name = "movieName";
-            movieName.Size = new Size(72, 30);
+            movieName.Size = new Size(138, 30);
             movieName.TabIndex = 22;
-            movieName.Text = "label1";
+            movieName.Text = "Movie Name";
             // 
             // movieRating
             // 
@@ -179,7 +182,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(19, 273);
+            label1.Location = new Point(19, 276);
             label1.Name = "label1";
             label1.Size = new Size(79, 25);
             label1.TabIndex = 25;
@@ -189,17 +192,51 @@
             // 
             genresTextBox.BackColor = SystemColors.Control;
             genresTextBox.BorderStyle = BorderStyle.None;
-            genresTextBox.Location = new Point(104, 281);
+            genresTextBox.Location = new Point(94, 283);
             genresTextBox.Name = "genresTextBox";
             genresTextBox.ReadOnly = true;
             genresTextBox.Size = new Size(406, 25);
             genresTextBox.TabIndex = 26;
             genresTextBox.Text = "";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(19, 314);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 25);
+            label2.TabIndex = 27;
+            label2.Text = "Director:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(19, 354);
+            label3.Name = "label3";
+            label3.Size = new Size(74, 25);
+            label3.TabIndex = 28;
+            label3.Text = "Actors:";
+            // 
+            // directorTextBox
+            // 
+            directorTextBox.BackColor = SystemColors.Control;
+            directorTextBox.BorderStyle = BorderStyle.None;
+            directorTextBox.Location = new Point(106, 321);
+            directorTextBox.Name = "directorTextBox";
+            directorTextBox.ReadOnly = true;
+            directorTextBox.Size = new Size(200, 25);
+            directorTextBox.TabIndex = 29;
+            directorTextBox.Text = "";
+            // 
             // MoviePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(directorTextBox);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(genresTextBox);
             Controls.Add(label1);
             Controls.Add(movieReviewCount);
@@ -235,5 +272,8 @@
         private TextBox movieReviewCount;
         private Label label1;
         private RichTextBox genresTextBox;
+        private Label label2;
+        private Label label3;
+        private RichTextBox directorTextBox;
     }
 }

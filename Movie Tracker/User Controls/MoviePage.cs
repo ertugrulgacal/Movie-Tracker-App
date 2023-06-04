@@ -33,6 +33,8 @@ namespace Movie_Tracker.User_Controls
 
             GetGenres();  // Get movie genres
 
+            GetDirector();  // Get director
+
             CheckWatchedList();  // See if user already has movie in watched list
 
             CheckWatchlist();  // See if user already has movie in watchlist
@@ -209,6 +211,33 @@ namespace Movie_Tracker.User_Controls
                     genresTextBox.AppendText(sqlDR[0].ToString() + ", ");
                 }
                 genresTextBox.Text = genresTextBox.Text[..^1];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        private void GetDirector()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "SELECT dir_name FROM TableDirector INNER JOIN TableMovieDirection ON TableDirector.dir_id=TableMovieDirection.dir_id WHERE mov_id='" + _id.ToString() + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                while (sqlDR.Read())
+                {
+                    directorTextBox.Text = sqlDR[0].ToString();
+                }
             }
             catch (Exception ex)
             {

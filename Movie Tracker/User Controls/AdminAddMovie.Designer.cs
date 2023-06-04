@@ -54,6 +54,11 @@
             genreSciFi = new CheckBox();
             genreThriller = new CheckBox();
             genreHorror = new CheckBox();
+            label7 = new Label();
+            movDirector = new TextBox();
+            label8 = new Label();
+            movActors = new TextBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)moviePoster).BeginInit();
             SuspendLayout();
             // 
@@ -198,7 +203,7 @@
             genreAction.FlatStyle = FlatStyle.Flat;
             genreAction.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreAction.ForeColor = Color.White;
-            genreAction.Location = new Point(35, 237);
+            genreAction.Location = new Point(35, 300);
             genreAction.Name = "genreAction";
             genreAction.Size = new Size(52, 25);
             genreAction.TabIndex = 19;
@@ -214,7 +219,7 @@
             genreAdventure.FlatStyle = FlatStyle.Flat;
             genreAdventure.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreAdventure.ForeColor = Color.White;
-            genreAdventure.Location = new Point(93, 237);
+            genreAdventure.Location = new Point(93, 300);
             genreAdventure.Name = "genreAdventure";
             genreAdventure.Size = new Size(72, 25);
             genreAdventure.TabIndex = 20;
@@ -230,7 +235,7 @@
             genreAnimation.FlatStyle = FlatStyle.Flat;
             genreAnimation.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreAnimation.ForeColor = Color.White;
-            genreAnimation.Location = new Point(171, 237);
+            genreAnimation.Location = new Point(171, 300);
             genreAnimation.Name = "genreAnimation";
             genreAnimation.Size = new Size(73, 25);
             genreAnimation.TabIndex = 21;
@@ -246,7 +251,7 @@
             genreComedy.FlatStyle = FlatStyle.Flat;
             genreComedy.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreComedy.ForeColor = Color.White;
-            genreComedy.Location = new Point(250, 237);
+            genreComedy.Location = new Point(250, 300);
             genreComedy.Name = "genreComedy";
             genreComedy.Size = new Size(62, 25);
             genreComedy.TabIndex = 22;
@@ -262,7 +267,7 @@
             genreCrime.FlatStyle = FlatStyle.Flat;
             genreCrime.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreCrime.ForeColor = Color.White;
-            genreCrime.Location = new Point(35, 268);
+            genreCrime.Location = new Point(35, 331);
             genreCrime.Name = "genreCrime";
             genreCrime.Size = new Size(49, 25);
             genreCrime.TabIndex = 23;
@@ -278,7 +283,7 @@
             genreDrama.FlatStyle = FlatStyle.Flat;
             genreDrama.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreDrama.ForeColor = Color.White;
-            genreDrama.Location = new Point(90, 268);
+            genreDrama.Location = new Point(90, 331);
             genreDrama.Name = "genreDrama";
             genreDrama.Size = new Size(52, 25);
             genreDrama.TabIndex = 24;
@@ -294,7 +299,7 @@
             genreFantasy.FlatStyle = FlatStyle.Flat;
             genreFantasy.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreFantasy.ForeColor = Color.White;
-            genreFantasy.Location = new Point(148, 268);
+            genreFantasy.Location = new Point(148, 331);
             genreFantasy.Name = "genreFantasy";
             genreFantasy.Size = new Size(57, 25);
             genreFantasy.TabIndex = 25;
@@ -310,7 +315,7 @@
             genreMystery.FlatStyle = FlatStyle.Flat;
             genreMystery.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreMystery.ForeColor = Color.White;
-            genreMystery.Location = new Point(35, 299);
+            genreMystery.Location = new Point(35, 362);
             genreMystery.Name = "genreMystery";
             genreMystery.Size = new Size(59, 25);
             genreMystery.TabIndex = 27;
@@ -326,7 +331,7 @@
             genreRomance.FlatStyle = FlatStyle.Flat;
             genreRomance.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreRomance.ForeColor = Color.White;
-            genreRomance.Location = new Point(100, 299);
+            genreRomance.Location = new Point(100, 362);
             genreRomance.Name = "genreRomance";
             genreRomance.Size = new Size(67, 25);
             genreRomance.TabIndex = 28;
@@ -342,7 +347,7 @@
             genreSciFi.FlatStyle = FlatStyle.Flat;
             genreSciFi.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreSciFi.ForeColor = Color.White;
-            genreSciFi.Location = new Point(173, 299);
+            genreSciFi.Location = new Point(173, 362);
             genreSciFi.Name = "genreSciFi";
             genreSciFi.Size = new Size(46, 25);
             genreSciFi.TabIndex = 29;
@@ -358,7 +363,7 @@
             genreThriller.FlatStyle = FlatStyle.Flat;
             genreThriller.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreThriller.ForeColor = Color.White;
-            genreThriller.Location = new Point(225, 299);
+            genreThriller.Location = new Point(225, 362);
             genreThriller.Name = "genreThriller";
             genreThriller.Size = new Size(54, 25);
             genreThriller.TabIndex = 30;
@@ -374,17 +379,68 @@
             genreHorror.FlatStyle = FlatStyle.Flat;
             genreHorror.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             genreHorror.ForeColor = Color.White;
-            genreHorror.Location = new Point(211, 268);
+            genreHorror.Location = new Point(211, 331);
             genreHorror.Name = "genreHorror";
             genreHorror.Size = new Size(52, 25);
             genreHorror.TabIndex = 26;
             genreHorror.Text = "Horror";
             genreHorror.UseVisualStyleBackColor = false;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(35, 282);
+            label7.Name = "label7";
+            label7.Size = new Size(45, 15);
+            label7.TabIndex = 31;
+            label7.Text = "genres:";
+            // 
+            // movDirector
+            // 
+            movDirector.Location = new Point(98, 206);
+            movDirector.Name = "movDirector";
+            movDirector.Size = new Size(289, 23);
+            movDirector.TabIndex = 33;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.BlueViolet;
+            label8.Location = new Point(35, 212);
+            label8.Name = "label8";
+            label8.Size = new Size(57, 15);
+            label8.TabIndex = 32;
+            label8.Text = "Director:";
+            // 
+            // movActors
+            // 
+            movActors.Location = new Point(87, 235);
+            movActors.Name = "movActors";
+            movActors.Size = new Size(300, 23);
+            movActors.TabIndex = 35;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.BlueViolet;
+            label9.Location = new Point(35, 241);
+            label9.Name = "label9";
+            label9.Size = new Size(46, 15);
+            label9.TabIndex = 34;
+            label9.Text = "Actors:";
+            // 
             // AdminAddMovie
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(movActors);
+            Controls.Add(label9);
+            Controls.Add(movDirector);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(genreThriller);
             Controls.Add(genreSciFi);
             Controls.Add(genreRomance);
@@ -447,5 +503,10 @@
         private CheckBox genreSciFi;
         private CheckBox genreThriller;
         private CheckBox genreHorror;
+        private Label label7;
+        private TextBox movDirector;
+        private Label label8;
+        private TextBox movActors;
+        private Label label9;
     }
 }
