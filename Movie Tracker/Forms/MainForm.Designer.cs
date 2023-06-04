@@ -193,7 +193,7 @@ partial class MainForm
         searchBar.PlaceholderText = "Search for a movie";
         searchBar.Size = new Size(206, 23);
         searchBar.TabIndex = 4;
-        searchBar.KeyPress += searchBar_KeyPress;
+        searchBar.TextChanged += searchBar_TextChanged;
         // 
         // btnFullscreen
         // 

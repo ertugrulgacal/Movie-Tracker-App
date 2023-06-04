@@ -469,7 +469,6 @@
             Controls.Add(label1);
             Name = "AdminAddMovie";
             Size = new Size(700, 408);
-            Load += AdminAddMovie_Load;
             ((System.ComponentModel.ISupportInitialize)moviePoster).EndInit();
             ResumeLayout(false);
             PerformLayout();

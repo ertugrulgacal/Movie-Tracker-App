@@ -29,15 +29,17 @@ namespace Movie_Tracker.User_Controls
 
         private void FormTest_Load(object sender, EventArgs e)
         {
-            GetMovieInfo();  // Get movie info
+            GetMovieInfo();
 
-            GetGenres();  // Get movie genres
+            GetGenres();
 
-            GetDirector();  // Get director
+            GetDirector();
 
-            CheckWatchedList();  // See if user already has movie in watched list
+            GetActors();
 
-            CheckWatchlist();  // See if user already has movie in watchlist
+            CheckWatchedList();
+
+            CheckWatchlist();
         }
 
         private void checkBox1_CheckedChanged(object sender, MouseEventArgs e)
@@ -238,6 +240,34 @@ namespace Movie_Tracker.User_Controls
                 {
                     directorTextBox.Text = sqlDR[0].ToString();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        private void GetActors()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "SELECT act_name FROM TableActor INNER JOIN TableMovieCast ON TableActor.act_id=TableMovieCast.act_id WHERE mov_id='" + _id.ToString() + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                while (sqlDR.Read())
+                {
+                    actorsTextBox.AppendText(sqlDR[0].ToString() + ", ");
+                }
+                actorsTextBox.Text = actorsTextBox.Text[..^1];
             }
             catch (Exception ex)
             {

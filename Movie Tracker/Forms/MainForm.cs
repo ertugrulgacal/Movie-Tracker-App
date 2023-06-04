@@ -120,7 +120,7 @@ public partial class MainForm : Form
 
     }
 
-    private void searchBar_KeyPress(object sender, KeyPressEventArgs e)
+    private void searchBar_TextChanged(object sender, EventArgs e)
     {
         ListSearchedMovies uc = new ListSearchedMovies(searchBar.Text);
         addUserControl(uc);

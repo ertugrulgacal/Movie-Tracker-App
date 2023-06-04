@@ -44,6 +44,7 @@
             label2 = new Label();
             label3 = new Label();
             directorTextBox = new RichTextBox();
+            actorsTextBox = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)moviePoster).BeginInit();
             SuspendLayout();
             // 
@@ -230,10 +231,22 @@
             directorTextBox.TabIndex = 29;
             directorTextBox.Text = "";
             // 
+            // actorsTextBox
+            // 
+            actorsTextBox.BackColor = SystemColors.Control;
+            actorsTextBox.BorderStyle = BorderStyle.None;
+            actorsTextBox.Location = new Point(93, 362);
+            actorsTextBox.Name = "actorsTextBox";
+            actorsTextBox.ReadOnly = true;
+            actorsTextBox.Size = new Size(406, 25);
+            actorsTextBox.TabIndex = 30;
+            actorsTextBox.Text = "";
+            // 
             // MoviePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(actorsTextBox);
             Controls.Add(directorTextBox);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -275,5 +288,6 @@
         private Label label2;
         private Label label3;
         private RichTextBox directorTextBox;
+        private RichTextBox actorsTextBox;
     }
 }

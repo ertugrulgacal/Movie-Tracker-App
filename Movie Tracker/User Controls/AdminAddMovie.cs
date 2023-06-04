@@ -17,6 +17,8 @@ namespace Movie_Tracker.User_Controls
     {
         private string _movieID;
         private string _directorID;
+        private string _actorID;
+        private string[] actors;
 
         public AdminAddMovie()
         {
@@ -24,11 +26,6 @@ namespace Movie_Tracker.User_Controls
         }
 
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KB41T07;Initial Catalog=DbMovieTracker;Integrated Security=True");
-
-        private void AdminAddMovie_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void Poster_TextChanged(object sender, EventArgs e)
         {
@@ -40,6 +37,7 @@ namespace Movie_Tracker.User_Controls
             SaveMovie();
             GetMovieID();
             AddDirector();
+            AddActors();
             SaveGenres();
         }
 
@@ -79,56 +77,116 @@ namespace Movie_Tracker.User_Controls
             AddMovieDirection();
         }
 
-        private void SaveGenres()
+        private void AddActors()
         {
-            if (genreAction.Checked)
+            actors = movActors.Text.Split(',');
+            foreach (string actor in actors)
             {
-                WriteGenre(genreAction, GetGenreID(genreAction.Text));
+                if (!ActorAlreadyExists(actor))
+                {
+                    AddNewActor(actor);
+                }
+
+                GetActorID(actor);
+                AddMovieCast(actor);
             }
-            if (genreAdventure.Checked)
+        }
+
+        private void AddMovieCast(string actor)
+        {
+            try
             {
-                WriteGenre(genreAdventure, GetGenreID(genreAdventure.Text));
+                con.Open();
+                string sqlQuery = "INSERT INTO TableMovieCast (act_id, mov_id) VALUES ('" + Int16.Parse(_actorID) + "','" + Int16.Parse(_movieID) + "')";
+                SqlCommand sqlCom = new SqlCommand(sqlQuery, con);
+                sqlCom.ExecuteNonQuery();
             }
-            if (genreAnimation.Checked)
+            catch (Exception ex)
             {
-                WriteGenre(genreAnimation, GetGenreID(genreAnimation.Text));
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
             }
-            if (genreComedy.Checked)
+            finally
             {
-                WriteGenre(genreComedy, GetGenreID(genreComedy.Text));
+                if (con != null)
+                {
+                    con.Close();
+                }
             }
-            if (genreCrime.Checked)
+        }
+
+        private void GetActorID(string actor)
+        {
+            try
             {
-                WriteGenre(genreCrime, GetGenreID(genreCrime.Text));
+                con.Open();
+                string sqlQuery = "Select act_id from TableActor WHERE act_name='" + actor + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                while (sqlDR.Read())
+                {
+                    _actorID = sqlDR[0].ToString();
+                }
+
             }
-            if (genreDrama.Checked)
+            catch (Exception ex)
             {
-                WriteGenre(genreDrama, GetGenreID(genreDrama.Text));
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
             }
-            if (genreFantasy.Checked)
+            finally
             {
-                WriteGenre(genreFantasy, GetGenreID(genreFantasy.Text));
+                if (con != null)
+                {
+                    con.Close();
+                }
             }
-            if (genreHorror.Checked)
+        }
+
+        private void AddNewActor(string actor)
+        {
+            try
             {
-                WriteGenre(genreMystery, GetGenreID(genreMystery.Text));
+                con.Open();
+                string sqlQuery = "INSERT INTO TableActor (act_name) VALUES ('" + actor + "')";
+                SqlCommand sqlCom = new SqlCommand(sqlQuery, con);
+                sqlCom.ExecuteNonQuery();
             }
-            if (genreMystery.Checked)
+            catch (Exception ex)
             {
-                WriteGenre(genreMystery, GetGenreID(genreMystery.Text));
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
             }
-            if (genreRomance.Checked)
+            finally
             {
-                WriteGenre(genreRomance, GetGenreID(genreRomance.Text));
+                if (con != null)
+                {
+                    con.Close();
+                }
             }
-            if (genreSciFi.Checked)
+        }
+
+        private bool ActorAlreadyExists(string actor)
+        {
+            try
             {
-                WriteGenre(genreSciFi, GetGenreID(genreSciFi.Text));
+                con.Open();
+                string sqlQuery = "Select act_id from TableActor WHERE act_name='" + actor + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                return sqlDR.Read();
             }
-            if (genreThriller.Checked)
+            catch (Exception ex)
             {
-                WriteGenre(genreThriller, GetGenreID(genreThriller.Text));
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return false;
         }
 
         private void WriteGenre(CheckBox checkBox, string genreID)
@@ -150,7 +208,6 @@ namespace Movie_Tracker.User_Controls
                 {
                     con.Close();
                 }
-                this.Hide();
             }
         }
 
@@ -188,7 +245,6 @@ namespace Movie_Tracker.User_Controls
             catch (Exception ex)
             {
                 MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
-                MessageBox.Show(_directorID);
             }
             finally
             {
@@ -196,7 +252,6 @@ namespace Movie_Tracker.User_Controls
                 {
                     con.Close();
                 }
-                this.Hide();
             }
         }
 
@@ -307,6 +362,58 @@ namespace Movie_Tracker.User_Controls
                 {
                     con.Close();
                 }
+            }
+        }
+
+        private void SaveGenres()
+        {
+            if (genreAction.Checked)
+            {
+                WriteGenre(genreAction, GetGenreID(genreAction.Text));
+            }
+            if (genreAdventure.Checked)
+            {
+                WriteGenre(genreAdventure, GetGenreID(genreAdventure.Text));
+            }
+            if (genreAnimation.Checked)
+            {
+                WriteGenre(genreAnimation, GetGenreID(genreAnimation.Text));
+            }
+            if (genreComedy.Checked)
+            {
+                WriteGenre(genreComedy, GetGenreID(genreComedy.Text));
+            }
+            if (genreCrime.Checked)
+            {
+                WriteGenre(genreCrime, GetGenreID(genreCrime.Text));
+            }
+            if (genreDrama.Checked)
+            {
+                WriteGenre(genreDrama, GetGenreID(genreDrama.Text));
+            }
+            if (genreFantasy.Checked)
+            {
+                WriteGenre(genreFantasy, GetGenreID(genreFantasy.Text));
+            }
+            if (genreHorror.Checked)
+            {
+                WriteGenre(genreMystery, GetGenreID(genreMystery.Text));
+            }
+            if (genreMystery.Checked)
+            {
+                WriteGenre(genreMystery, GetGenreID(genreMystery.Text));
+            }
+            if (genreRomance.Checked)
+            {
+                WriteGenre(genreRomance, GetGenreID(genreRomance.Text));
+            }
+            if (genreSciFi.Checked)
+            {
+                WriteGenre(genreSciFi, GetGenreID(genreSciFi.Text));
+            }
+            if (genreThriller.Checked)
+            {
+                WriteGenre(genreThriller, GetGenreID(genreThriller.Text));
             }
         }
     }
