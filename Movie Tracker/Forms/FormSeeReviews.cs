@@ -58,34 +58,29 @@ namespace Movie_Tracker.Forms
             try
             {
                 con.Open();
-                string sqlQuery = "SELECT username, rev_content FROM TableReview INNER JOIN TableUser ON TableUser.user_id=TableReview.user_id WHERE TableReview.mov_id=" + _id.ToString();
+                string sqlQuery = "SELECT username, rev_content, rev_rating FROM TableReview INNER JOIN TableUser ON TableUser.user_id=TableReview.user_id WHERE TableReview.mov_id=" + _id.ToString();
                 SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
                 SqlDataReader sqlDR = sqlCommand.ExecuteReader();
 
-                int usernameX = 172;
+                int usernameX = 203;
                 int usernameY = 50;
-                int usernameWidth = 480;
+                int usernameWidth = 100;
                 int usernameHeight = 20;
-                int reviewX = usernameX;
+                int reviewX = 172;
                 int reviewY = 66;
-                int reviewWidth = 490;
+                int reviewWidth = 475;
                 int reviewHeight = 123;
+                int numberX = 172;
+                int numberY = usernameY;
+                int numberWidth = 35;
+                int numberHeight = usernameHeight;
                 int i = 0;
 
                 while (sqlDR.Read())
                 {
                     string username = sqlDR[0].ToString();
                     string revContent = sqlDR[1].ToString();
-
-                    var reviewUsername = new Label
-                    {
-                        Name = "username" + i.ToString(),
-                        Text = username,
-                        Size = new Size(usernameWidth, usernameHeight),
-                        Location = new Point(usernameX, usernameY),
-                        Font = new Font(new FontFamily("Nirmala UI"), 11, FontStyle.Italic, GraphicsUnit.Pixel),
-                        BackColor = System.Drawing.Color.Transparent
-                    };
+                    string revRating = sqlDR[2].ToString() + "/10";
 
                     var reviewText = new RichTextBox
                     {
@@ -98,11 +93,33 @@ namespace Movie_Tracker.Forms
                         ReadOnly = true
                     };
 
-                    this.Controls.Add(reviewUsername);
+                    var reviewRating = new Label
+                    {
+                        Name = "rating" + i.ToString(),
+                        Text = revRating,
+                        Size = new Size(numberWidth, numberHeight),
+                        Location = new Point(numberX, numberY),
+                        Font = new Font(new FontFamily("Nirmala UI"), 11, FontStyle.Regular, GraphicsUnit.Pixel),
+                        BackColor = System.Drawing.Color.Transparent
+                    };
+
+                    var reviewUsername = new Label
+                    {
+                        Name = "username" + i.ToString(),
+                        Text = username,
+                        Size = new Size(usernameWidth, usernameHeight),
+                        Location = new Point(usernameX, usernameY),
+                        Font = new Font(new FontFamily("Nirmala UI"), 11, FontStyle.Italic, GraphicsUnit.Pixel),
+                        BackColor = System.Drawing.Color.Transparent
+                    };              
+                    
                     this.Controls.Add(reviewText);
+                    this.Controls.Add(reviewRating);
+                    this.Controls.Add(reviewUsername);
 
                     usernameY += usernameHeight + reviewHeight + 20;
                     reviewY += usernameHeight + reviewHeight + 20;
+                    numberY = usernameY;
                     i++;
                 }
             }

@@ -107,7 +107,17 @@ public partial class MainForm : Form
 
     private void button5_Click(object sender, EventArgs e)
     {
-        menuTitle.Text = "SETTINGS";
+        if (Program.userID == "1")
+        {
+            AdminAddMovie uc = new AdminAddMovie();
+            addUserControl(uc);
+            menuTitle.Text = "ADMIN";
+        }
+        else
+        {
+            MessageBox.Show("You have to be an admin to use that feature!", "Error", MessageBoxButtons.OK);
+        }
+
     }
 
     private void searchBar_KeyPress(object sender, KeyPressEventArgs e)
@@ -143,5 +153,13 @@ public partial class MainForm : Form
     private void btnMinimize_Click(object sender, EventArgs e)
     {
         this.WindowState |= FormWindowState.Minimized;
+    }
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+        if (!String.Equals(Program.userID, "1"))
+        {
+            //button5.Visible = false;
+        }
     }
 }

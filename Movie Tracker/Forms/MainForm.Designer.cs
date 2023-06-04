@@ -37,12 +37,12 @@ partial class MainForm
         panelLogo = new Panel();
         label2 = new Label();
         panelTitleBar = new Panel();
+        searchBar = new TextBox();
         btnFullscreen = new Button();
         btnMinimize = new Button();
         btnClose = new Button();
         menuTitle = new Label();
         panelDesktopPane = new Panel();
-        searchBar = new TextBox();
         panelMenu.SuspendLayout();
         panelLogo.SuspendLayout();
         panelTitleBar.SuspendLayout();
@@ -75,7 +75,7 @@ partial class MainForm
         button5.Padding = new Padding(11, 0, 0, 0);
         button5.Size = new Size(220, 60);
         button5.TabIndex = 5;
-        button5.Text = " Settings";
+        button5.Text = " Admin";
         button5.TextAlign = ContentAlignment.MiddleLeft;
         button5.UseVisualStyleBackColor = true;
         button5.Click += button5_Click;
@@ -185,6 +185,16 @@ partial class MainForm
         panelTitleBar.TabIndex = 1;
         panelTitleBar.MouseDown += panelTitleBar_MouseDown;
         // 
+        // searchBar
+        // 
+        searchBar.ForeColor = SystemColors.ControlDarkDark;
+        searchBar.Location = new Point(482, 48);
+        searchBar.Name = "searchBar";
+        searchBar.PlaceholderText = "Search for a movie";
+        searchBar.Size = new Size(206, 23);
+        searchBar.TabIndex = 4;
+        searchBar.KeyPress += searchBar_KeyPress;
+        // 
         // btnFullscreen
         // 
         btnFullscreen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -246,16 +256,6 @@ partial class MainForm
         panelDesktopPane.Size = new Size(700, 425);
         panelDesktopPane.TabIndex = 2;
         // 
-        // searchBar
-        // 
-        searchBar.ForeColor = SystemColors.ControlDarkDark;
-        searchBar.Location = new Point(482, 48);
-        searchBar.Name = "searchBar";
-        searchBar.PlaceholderText = "Search for a movie";
-        searchBar.Size = new Size(206, 23);
-        searchBar.TabIndex = 4;
-        searchBar.KeyPress += searchBar_KeyPress;
-        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -266,6 +266,7 @@ partial class MainForm
         Controls.Add(panelMenu);
         Name = "MainForm";
         Text = "Form1";
+        Load += MainForm_Load;
         panelMenu.ResumeLayout(false);
         panelLogo.ResumeLayout(false);
         panelLogo.PerformLayout();

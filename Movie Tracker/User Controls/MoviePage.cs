@@ -29,84 +29,11 @@ namespace Movie_Tracker.User_Controls
 
         private void FormTest_Load(object sender, EventArgs e)
         {
-            // Get movie info
-            try
-            {
-                con.Open();
-                string sqlQuery = "Select mov_title, mov_desc, mov_year, mov_length, mov_lang, mov_poster, vote_average, vote_count from TableMovie WHERE mov_id=" + _id.ToString();
-                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
-                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+            GetMovieInfo();  // Get movie info
 
-                while (sqlDR.Read())
-                {
-                    movieName.Text = sqlDR[0].ToString() + " (" + sqlDR[2].ToString() + ")";
-                    movieDesc.Text = sqlDR[1].ToString();
-                    moviePoster.ImageLocation = sqlDR[5].ToString();
-                    movieLength.Text = sqlDR[3].ToString() + " mins         " + sqlDR[4].ToString();
-                }
+            CheckWatchedList();  // See if user already has movie in watched list
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
-            }
-            finally
-            {
-                if (con != null)
-                {
-                    con.Close();
-                }
-            }
-
-            // See if user already has movie in watched list
-            try
-            {
-                con.Open();
-                string sqlQuery = "Select user_id, mov_id from TableWatchedList WHERE user_id='" + Program.userID + "' AND mov_id='" + _id.ToString() + "'";
-                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
-                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
-
-                if (sqlDR.Read() == true)
-                {
-                    movieUserWatched.Checked = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
-            }
-            finally
-            {
-                if (con != null)
-                {
-                    con.Close();
-                }
-            }
-
-            // See if user already has movie in watchlist
-            try
-            {
-                con.Open();
-                string sqlQuery = "Select user_id, mov_id from TableWatchList WHERE user_id='" + Program.userID + "' AND mov_id='" + _id.ToString() + "'";
-                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
-                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
-
-                if (sqlDR.Read() == true)
-                {
-                    movieUserWatchlist.Checked = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
-            }
-            finally
-            {
-                if (con != null)
-                {
-                    con.Close();
-                }
-            }
+            CheckWatchlist();  // See if user already has movie in watchlist
         }
 
         private void checkBox1_CheckedChanged(object sender, MouseEventArgs e)
@@ -179,9 +106,91 @@ namespace Movie_Tracker.User_Controls
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void GetMovieInfo()
         {
+            try
+            {
+                con.Open();
+                string sqlQuery = "Select mov_title, mov_desc, mov_year, mov_length, mov_lang, mov_poster, vote_average, vote_count from TableMovie WHERE mov_id=" + _id.ToString();
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
 
+                while (sqlDR.Read())
+                {
+                    movieName.Text = sqlDR[0].ToString() + " (" + sqlDR[2].ToString() + ")";
+                    movieDesc.Text = sqlDR[1].ToString();
+                    moviePoster.ImageLocation = sqlDR[5].ToString();
+                    movieLength.Text = sqlDR[3].ToString() + " mins         " + sqlDR[4].ToString();
+                    movieRating.Text = "Rating: " + sqlDR[6].ToString();
+                    movieReviewCount.Text = sqlDR[7].ToString() + " total reviews";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        private void CheckWatchedList()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "Select user_id, mov_id from TableWatchedList WHERE user_id='" + Program.userID + "' AND mov_id='" + _id.ToString() + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                if (sqlDR.Read() == true)
+                {
+                    movieUserWatched.Checked = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        private void CheckWatchlist()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "Select user_id, mov_id from TableWatchList WHERE user_id='" + Program.userID + "' AND mov_id='" + _id.ToString() + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                if (sqlDR.Read() == true)
+                {
+                    movieUserWatchlist.Checked = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

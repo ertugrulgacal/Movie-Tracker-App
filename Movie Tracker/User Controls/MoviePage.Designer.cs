@@ -34,12 +34,12 @@
             movieLength = new TextBox();
             movieUserWatched = new CheckBox();
             movieUserWatchlist = new CheckBox();
-            movieUserRating = new NumericUpDown();
             button1 = new Button();
             label4 = new Label();
             movieName = new Label();
+            movieRating = new Label();
+            movieReviewCount = new TextBox();
             ((System.ComponentModel.ISupportInitialize)moviePoster).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)movieUserRating).BeginInit();
             SuspendLayout();
             // 
             // moviePoster
@@ -75,8 +75,9 @@
             movieLength.BackColor = SystemColors.Control;
             movieLength.BorderStyle = BorderStyle.None;
             movieLength.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            movieLength.Location = new Point(19, 245);
+            movieLength.Location = new Point(19, 236);
             movieLength.Name = "movieLength";
+            movieLength.ReadOnly = true;
             movieLength.Size = new Size(140, 16);
             movieLength.TabIndex = 5;
             movieLength.TextAlign = HorizontalAlignment.Center;
@@ -92,9 +93,9 @@
             movieUserWatched.ForeColor = Color.White;
             movieUserWatched.Location = new Point(527, 73);
             movieUserWatched.Name = "movieUserWatched";
-            movieUserWatched.Size = new Size(113, 35);
+            movieUserWatched.Size = new Size(123, 35);
             movieUserWatched.TabIndex = 6;
-            movieUserWatched.Text = "WATCHED";
+            movieUserWatched.Text = " WATCHED ";
             movieUserWatched.UseVisualStyleBackColor = false;
             movieUserWatched.MouseClick += checkBox1_CheckedChanged;
             // 
@@ -106,7 +107,7 @@
             movieUserWatchlist.FlatStyle = FlatStyle.Flat;
             movieUserWatchlist.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             movieUserWatchlist.ForeColor = Color.White;
-            movieUserWatchlist.Location = new Point(527, 123);
+            movieUserWatchlist.Location = new Point(527, 114);
             movieUserWatchlist.Name = "movieUserWatchlist";
             movieUserWatchlist.Size = new Size(127, 35);
             movieUserWatchlist.TabIndex = 7;
@@ -114,24 +115,17 @@
             movieUserWatchlist.UseVisualStyleBackColor = false;
             movieUserWatchlist.MouseClick += checkBox2_CheckedChanged;
             // 
-            // movieUserRating
-            // 
-            movieUserRating.Location = new Point(647, 79);
-            movieUserRating.Name = "movieUserRating";
-            movieUserRating.Size = new Size(35, 23);
-            movieUserRating.TabIndex = 8;
-            // 
             // button1
             // 
             button1.BackColor = Color.BlueViolet;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Nirmala UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(527, 173);
+            button1.Location = new Point(527, 155);
             button1.Name = "button1";
             button1.Size = new Size(127, 34);
             button1.TabIndex = 9;
-            button1.Text = "Write a Review";
+            button1.Text = "REVIEW";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -141,7 +135,7 @@
             label4.Cursor = Cursors.Hand;
             label4.Font = new Font("Nirmala UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
             label4.ForeColor = Color.BlueViolet;
-            label4.Location = new Point(551, 210);
+            label4.Location = new Point(551, 192);
             label4.Name = "label4";
             label4.Size = new Size(82, 15);
             label4.TabIndex = 21;
@@ -158,14 +152,36 @@
             movieName.TabIndex = 22;
             movieName.Text = "label1";
             // 
+            // movieRating
+            // 
+            movieRating.AutoSize = true;
+            movieRating.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            movieRating.ForeColor = Color.BlueViolet;
+            movieRating.Location = new Point(527, 222);
+            movieRating.Name = "movieRating";
+            movieRating.Size = new Size(132, 30);
+            movieRating.TabIndex = 23;
+            movieRating.Text = "Rating: 5.55";
+            // 
+            // movieReviewCount
+            // 
+            movieReviewCount.BorderStyle = BorderStyle.None;
+            movieReviewCount.Location = new Point(550, 255);
+            movieReviewCount.Name = "movieReviewCount";
+            movieReviewCount.ReadOnly = true;
+            movieReviewCount.Size = new Size(100, 16);
+            movieReviewCount.TabIndex = 24;
+            movieReviewCount.Text = "10 total reviews";
+            // 
             // MoviePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(movieReviewCount);
+            Controls.Add(movieRating);
             Controls.Add(movieName);
             Controls.Add(label4);
             Controls.Add(button1);
-            Controls.Add(movieUserRating);
             Controls.Add(movieUserWatchlist);
             Controls.Add(movieUserWatched);
             Controls.Add(movieLength);
@@ -176,7 +192,6 @@
             Size = new Size(700, 408);
             Load += FormTest_Load;
             ((System.ComponentModel.ISupportInitialize)moviePoster).EndInit();
-            ((System.ComponentModel.ISupportInitialize)movieUserRating).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,9 +203,10 @@
         private TextBox movieLength;
         private CheckBox movieUserWatched;
         private CheckBox movieUserWatchlist;
-        private NumericUpDown movieUserRating;
         private Button button1;
         private Label label4;
         private Label movieName;
+        private Label movieRating;
+        private TextBox movieReviewCount;
     }
 }
