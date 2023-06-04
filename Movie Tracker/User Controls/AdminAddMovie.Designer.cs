@@ -42,6 +42,18 @@
             label6 = new Label();
             button1 = new Button();
             moviePoster = new PictureBox();
+            genreAction = new CheckBox();
+            genreAdventure = new CheckBox();
+            genreAnimation = new CheckBox();
+            genreComedy = new CheckBox();
+            genreCrime = new CheckBox();
+            genreDrama = new CheckBox();
+            genreFantasy = new CheckBox();
+            genreMystery = new CheckBox();
+            genreRomance = new CheckBox();
+            genreSciFi = new CheckBox();
+            genreThriller = new CheckBox();
+            genreHorror = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)moviePoster).BeginInit();
             SuspendLayout();
             // 
@@ -177,10 +189,214 @@
             moviePoster.TabIndex = 18;
             moviePoster.TabStop = false;
             // 
+            // genreAction
+            // 
+            genreAction.Appearance = Appearance.Button;
+            genreAction.AutoSize = true;
+            genreAction.BackColor = Color.BlueViolet;
+            genreAction.FlatAppearance.BorderSize = 0;
+            genreAction.FlatStyle = FlatStyle.Flat;
+            genreAction.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreAction.ForeColor = Color.White;
+            genreAction.Location = new Point(35, 237);
+            genreAction.Name = "genreAction";
+            genreAction.Size = new Size(52, 25);
+            genreAction.TabIndex = 19;
+            genreAction.Text = "Action";
+            genreAction.UseVisualStyleBackColor = false;
+            // 
+            // genreAdventure
+            // 
+            genreAdventure.Appearance = Appearance.Button;
+            genreAdventure.AutoSize = true;
+            genreAdventure.BackColor = Color.BlueViolet;
+            genreAdventure.FlatAppearance.BorderSize = 0;
+            genreAdventure.FlatStyle = FlatStyle.Flat;
+            genreAdventure.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreAdventure.ForeColor = Color.White;
+            genreAdventure.Location = new Point(93, 237);
+            genreAdventure.Name = "genreAdventure";
+            genreAdventure.Size = new Size(72, 25);
+            genreAdventure.TabIndex = 20;
+            genreAdventure.Text = "Adventure";
+            genreAdventure.UseVisualStyleBackColor = false;
+            // 
+            // genreAnimation
+            // 
+            genreAnimation.Appearance = Appearance.Button;
+            genreAnimation.AutoSize = true;
+            genreAnimation.BackColor = Color.BlueViolet;
+            genreAnimation.FlatAppearance.BorderSize = 0;
+            genreAnimation.FlatStyle = FlatStyle.Flat;
+            genreAnimation.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreAnimation.ForeColor = Color.White;
+            genreAnimation.Location = new Point(171, 237);
+            genreAnimation.Name = "genreAnimation";
+            genreAnimation.Size = new Size(73, 25);
+            genreAnimation.TabIndex = 21;
+            genreAnimation.Text = "Animation";
+            genreAnimation.UseVisualStyleBackColor = false;
+            // 
+            // genreComedy
+            // 
+            genreComedy.Appearance = Appearance.Button;
+            genreComedy.AutoSize = true;
+            genreComedy.BackColor = Color.BlueViolet;
+            genreComedy.FlatAppearance.BorderSize = 0;
+            genreComedy.FlatStyle = FlatStyle.Flat;
+            genreComedy.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreComedy.ForeColor = Color.White;
+            genreComedy.Location = new Point(250, 237);
+            genreComedy.Name = "genreComedy";
+            genreComedy.Size = new Size(62, 25);
+            genreComedy.TabIndex = 22;
+            genreComedy.Text = "Comedy";
+            genreComedy.UseVisualStyleBackColor = false;
+            // 
+            // genreCrime
+            // 
+            genreCrime.Appearance = Appearance.Button;
+            genreCrime.AutoSize = true;
+            genreCrime.BackColor = Color.BlueViolet;
+            genreCrime.FlatAppearance.BorderSize = 0;
+            genreCrime.FlatStyle = FlatStyle.Flat;
+            genreCrime.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreCrime.ForeColor = Color.White;
+            genreCrime.Location = new Point(35, 268);
+            genreCrime.Name = "genreCrime";
+            genreCrime.Size = new Size(49, 25);
+            genreCrime.TabIndex = 23;
+            genreCrime.Text = "Crime";
+            genreCrime.UseVisualStyleBackColor = false;
+            // 
+            // genreDrama
+            // 
+            genreDrama.Appearance = Appearance.Button;
+            genreDrama.AutoSize = true;
+            genreDrama.BackColor = Color.BlueViolet;
+            genreDrama.FlatAppearance.BorderSize = 0;
+            genreDrama.FlatStyle = FlatStyle.Flat;
+            genreDrama.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreDrama.ForeColor = Color.White;
+            genreDrama.Location = new Point(90, 268);
+            genreDrama.Name = "genreDrama";
+            genreDrama.Size = new Size(52, 25);
+            genreDrama.TabIndex = 24;
+            genreDrama.Text = "Drama";
+            genreDrama.UseVisualStyleBackColor = false;
+            // 
+            // genreFantasy
+            // 
+            genreFantasy.Appearance = Appearance.Button;
+            genreFantasy.AutoSize = true;
+            genreFantasy.BackColor = Color.BlueViolet;
+            genreFantasy.FlatAppearance.BorderSize = 0;
+            genreFantasy.FlatStyle = FlatStyle.Flat;
+            genreFantasy.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreFantasy.ForeColor = Color.White;
+            genreFantasy.Location = new Point(148, 268);
+            genreFantasy.Name = "genreFantasy";
+            genreFantasy.Size = new Size(57, 25);
+            genreFantasy.TabIndex = 25;
+            genreFantasy.Text = "Fantasy";
+            genreFantasy.UseVisualStyleBackColor = false;
+            // 
+            // genreMystery
+            // 
+            genreMystery.Appearance = Appearance.Button;
+            genreMystery.AutoSize = true;
+            genreMystery.BackColor = Color.BlueViolet;
+            genreMystery.FlatAppearance.BorderSize = 0;
+            genreMystery.FlatStyle = FlatStyle.Flat;
+            genreMystery.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreMystery.ForeColor = Color.White;
+            genreMystery.Location = new Point(35, 299);
+            genreMystery.Name = "genreMystery";
+            genreMystery.Size = new Size(59, 25);
+            genreMystery.TabIndex = 27;
+            genreMystery.Text = "Mystery";
+            genreMystery.UseVisualStyleBackColor = false;
+            // 
+            // genreRomance
+            // 
+            genreRomance.Appearance = Appearance.Button;
+            genreRomance.AutoSize = true;
+            genreRomance.BackColor = Color.BlueViolet;
+            genreRomance.FlatAppearance.BorderSize = 0;
+            genreRomance.FlatStyle = FlatStyle.Flat;
+            genreRomance.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreRomance.ForeColor = Color.White;
+            genreRomance.Location = new Point(100, 299);
+            genreRomance.Name = "genreRomance";
+            genreRomance.Size = new Size(67, 25);
+            genreRomance.TabIndex = 28;
+            genreRomance.Text = "Romance";
+            genreRomance.UseVisualStyleBackColor = false;
+            // 
+            // genreSciFi
+            // 
+            genreSciFi.Appearance = Appearance.Button;
+            genreSciFi.AutoSize = true;
+            genreSciFi.BackColor = Color.BlueViolet;
+            genreSciFi.FlatAppearance.BorderSize = 0;
+            genreSciFi.FlatStyle = FlatStyle.Flat;
+            genreSciFi.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreSciFi.ForeColor = Color.White;
+            genreSciFi.Location = new Point(173, 299);
+            genreSciFi.Name = "genreSciFi";
+            genreSciFi.Size = new Size(46, 25);
+            genreSciFi.TabIndex = 29;
+            genreSciFi.Text = "Sci-Fi";
+            genreSciFi.UseVisualStyleBackColor = false;
+            // 
+            // genreThriller
+            // 
+            genreThriller.Appearance = Appearance.Button;
+            genreThriller.AutoSize = true;
+            genreThriller.BackColor = Color.BlueViolet;
+            genreThriller.FlatAppearance.BorderSize = 0;
+            genreThriller.FlatStyle = FlatStyle.Flat;
+            genreThriller.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreThriller.ForeColor = Color.White;
+            genreThriller.Location = new Point(225, 299);
+            genreThriller.Name = "genreThriller";
+            genreThriller.Size = new Size(54, 25);
+            genreThriller.TabIndex = 30;
+            genreThriller.Text = "Thriller";
+            genreThriller.UseVisualStyleBackColor = false;
+            // 
+            // genreHorror
+            // 
+            genreHorror.Appearance = Appearance.Button;
+            genreHorror.AutoSize = true;
+            genreHorror.BackColor = Color.BlueViolet;
+            genreHorror.FlatAppearance.BorderSize = 0;
+            genreHorror.FlatStyle = FlatStyle.Flat;
+            genreHorror.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            genreHorror.ForeColor = Color.White;
+            genreHorror.Location = new Point(211, 268);
+            genreHorror.Name = "genreHorror";
+            genreHorror.Size = new Size(52, 25);
+            genreHorror.TabIndex = 26;
+            genreHorror.Text = "Horror";
+            genreHorror.UseVisualStyleBackColor = false;
+            // 
             // AdminAddMovie
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(genreThriller);
+            Controls.Add(genreSciFi);
+            Controls.Add(genreRomance);
+            Controls.Add(genreMystery);
+            Controls.Add(genreHorror);
+            Controls.Add(genreFantasy);
+            Controls.Add(genreDrama);
+            Controls.Add(genreCrime);
+            Controls.Add(genreComedy);
+            Controls.Add(genreAnimation);
+            Controls.Add(genreAdventure);
+            Controls.Add(genreAction);
             Controls.Add(moviePoster);
             Controls.Add(button1);
             Controls.Add(movPoster);
@@ -197,6 +413,7 @@
             Controls.Add(label1);
             Name = "AdminAddMovie";
             Size = new Size(700, 408);
+            Load += AdminAddMovie_Load;
             ((System.ComponentModel.ISupportInitialize)moviePoster).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -218,5 +435,17 @@
         private Label label6;
         private Button button1;
         private PictureBox moviePoster;
+        private CheckBox genreAction;
+        private CheckBox genreAdventure;
+        private CheckBox genreAnimation;
+        private CheckBox genreComedy;
+        private CheckBox genreCrime;
+        private CheckBox genreDrama;
+        private CheckBox genreFantasy;
+        private CheckBox genreMystery;
+        private CheckBox genreRomance;
+        private CheckBox genreSciFi;
+        private CheckBox genreThriller;
+        private CheckBox genreHorror;
     }
 }

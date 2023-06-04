@@ -31,6 +31,8 @@ namespace Movie_Tracker.User_Controls
         {
             GetMovieInfo();  // Get movie info
 
+            GetGenres();  // Get movie genres
+
             CheckWatchedList();  // See if user already has movie in watched list
 
             CheckWatchlist();  // See if user already has movie in watchlist
@@ -179,6 +181,34 @@ namespace Movie_Tracker.User_Controls
                 {
                     movieUserWatchlist.Checked = true;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Query sirasinda hata olustu!" + ex.ToString());
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        private void GetGenres()
+        {
+            try
+            {
+                con.Open();
+                string sqlQuery = "SELECT gen_name FROM TableGenre INNER JOIN TableMovieGenre ON TableGenre.gen_id=TableMovieGenre.gen_id WHERE mov_id='" + _id.ToString() + "'";
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
+                SqlDataReader sqlDR = sqlCommand.ExecuteReader();
+
+                while (sqlDR.Read())
+                {
+                    genresTextBox.AppendText(sqlDR[0].ToString() + ", ");
+                }
+                genresTextBox.Text = genresTextBox.Text[..^1];
             }
             catch (Exception ex)
             {

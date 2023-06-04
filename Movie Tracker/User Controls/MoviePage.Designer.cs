@@ -39,6 +39,8 @@
             movieName = new Label();
             movieRating = new Label();
             movieReviewCount = new TextBox();
+            label1 = new Label();
+            genresTextBox = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)moviePoster).BeginInit();
             SuspendLayout();
             // 
@@ -173,10 +175,33 @@
             movieReviewCount.TabIndex = 24;
             movieReviewCount.Text = "10 total reviews";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(19, 273);
+            label1.Name = "label1";
+            label1.Size = new Size(79, 25);
+            label1.TabIndex = 25;
+            label1.Text = "Genres:";
+            // 
+            // genresTextBox
+            // 
+            genresTextBox.BackColor = SystemColors.Control;
+            genresTextBox.BorderStyle = BorderStyle.None;
+            genresTextBox.Location = new Point(104, 281);
+            genresTextBox.Name = "genresTextBox";
+            genresTextBox.ReadOnly = true;
+            genresTextBox.Size = new Size(406, 25);
+            genresTextBox.TabIndex = 26;
+            genresTextBox.Text = "";
+            // 
             // MoviePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(genresTextBox);
+            Controls.Add(label1);
             Controls.Add(movieReviewCount);
             Controls.Add(movieRating);
             Controls.Add(movieName);
@@ -208,5 +233,7 @@
         private Label movieName;
         private Label movieRating;
         private TextBox movieReviewCount;
+        private Label label1;
+        private RichTextBox genresTextBox;
     }
 }
