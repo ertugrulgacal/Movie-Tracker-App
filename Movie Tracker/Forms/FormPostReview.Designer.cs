@@ -72,7 +72,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.BlueViolet;
+            button1.BackColor = Color.FromArgb(116, 86, 174);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Nirmala UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;

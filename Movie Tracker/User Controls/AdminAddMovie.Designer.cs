@@ -66,7 +66,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.BlueViolet;
+            label1.ForeColor = Color.FromArgb(116, 86, 174);
             label1.Location = new Point(35, 38);
             label1.Name = "label1";
             label1.Size = new Size(35, 15);
@@ -75,9 +75,9 @@
             // 
             // movTitle
             // 
-            movTitle.Location = new Point(75, 32);
+            movTitle.Location = new Point(115, 32);
             movTitle.Name = "movTitle";
-            movTitle.Size = new Size(312, 23);
+            movTitle.Size = new Size(272, 23);
             movTitle.TabIndex = 6;
             // 
             // movDesc
@@ -91,7 +91,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.BlueViolet;
+            label2.ForeColor = Color.FromArgb(116, 86, 174);
             label2.Location = new Point(35, 67);
             label2.Name = "label2";
             label2.Size = new Size(74, 15);
@@ -100,16 +100,16 @@
             // 
             // movYear
             // 
-            movYear.Location = new Point(75, 90);
+            movYear.Location = new Point(115, 90);
             movYear.Name = "movYear";
-            movYear.Size = new Size(312, 23);
+            movYear.Size = new Size(272, 23);
             movYear.TabIndex = 10;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.BlueViolet;
+            label3.ForeColor = Color.FromArgb(116, 86, 174);
             label3.Location = new Point(35, 96);
             label3.Name = "label3";
             label3.Size = new Size(34, 15);
@@ -118,16 +118,16 @@
             // 
             // movLength
             // 
-            movLength.Location = new Point(90, 119);
+            movLength.Location = new Point(113, 119);
             movLength.Name = "movLength";
-            movLength.Size = new Size(297, 23);
+            movLength.Size = new Size(274, 23);
             movLength.TabIndex = 12;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.BlueViolet;
+            label4.ForeColor = Color.FromArgb(116, 86, 174);
             label4.Location = new Point(35, 125);
             label4.Name = "label4";
             label4.Size = new Size(49, 15);
@@ -136,16 +136,16 @@
             // 
             // movLanguage
             // 
-            movLanguage.Location = new Point(104, 148);
+            movLanguage.Location = new Point(113, 148);
             movLanguage.Name = "movLanguage";
-            movLanguage.Size = new Size(283, 23);
+            movLanguage.Size = new Size(274, 23);
             movLanguage.TabIndex = 14;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.BlueViolet;
+            label5.ForeColor = Color.FromArgb(116, 86, 174);
             label5.Location = new Point(35, 154);
             label5.Name = "label5";
             label5.Size = new Size(63, 15);
@@ -164,7 +164,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.BlueViolet;
+            label6.ForeColor = Color.FromArgb(116, 86, 174);
             label6.Location = new Point(35, 183);
             label6.Name = "label6";
             label6.Size = new Size(72, 15);
@@ -173,7 +173,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.BlueViolet;
+            button1.BackColor = Color.FromArgb(116, 86, 174);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Nirmala UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
@@ -198,7 +198,7 @@
             // 
             genreAction.Appearance = Appearance.Button;
             genreAction.AutoSize = true;
-            genreAction.BackColor = Color.BlueViolet;
+            genreAction.BackColor = Color.FromArgb(116, 86, 174);
             genreAction.FlatAppearance.BorderSize = 0;
             genreAction.FlatStyle = FlatStyle.Flat;
             genreAction.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -214,7 +214,7 @@
             // 
             genreAdventure.Appearance = Appearance.Button;
             genreAdventure.AutoSize = true;
-            genreAdventure.BackColor = Color.BlueViolet;
+            genreAdventure.BackColor = Color.FromArgb(116, 86, 174);
             genreAdventure.FlatAppearance.BorderSize = 0;
             genreAdventure.FlatStyle = FlatStyle.Flat;
             genreAdventure.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -230,7 +230,7 @@
             // 
             genreAnimation.Appearance = Appearance.Button;
             genreAnimation.AutoSize = true;
-            genreAnimation.BackColor = Color.BlueViolet;
+            genreAnimation.BackColor = Color.FromArgb(116, 86, 174);
             genreAnimation.FlatAppearance.BorderSize = 0;
             genreAnimation.FlatStyle = FlatStyle.Flat;
             genreAnimation.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -246,7 +246,7 @@
             // 
             genreComedy.Appearance = Appearance.Button;
             genreComedy.AutoSize = true;
-            genreComedy.BackColor = Color.BlueViolet;
+            genreComedy.BackColor = Color.FromArgb(116, 86, 174);
             genreComedy.FlatAppearance.BorderSize = 0;
             genreComedy.FlatStyle = FlatStyle.Flat;
             genreComedy.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -262,7 +262,7 @@
             // 
             genreCrime.Appearance = Appearance.Button;
             genreCrime.AutoSize = true;
-            genreCrime.BackColor = Color.BlueViolet;
+            genreCrime.BackColor = Color.FromArgb(116, 86, 174);
             genreCrime.FlatAppearance.BorderSize = 0;
             genreCrime.FlatStyle = FlatStyle.Flat;
             genreCrime.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -278,7 +278,7 @@
             // 
             genreDrama.Appearance = Appearance.Button;
             genreDrama.AutoSize = true;
-            genreDrama.BackColor = Color.BlueViolet;
+            genreDrama.BackColor = Color.FromArgb(116, 86, 174);
             genreDrama.FlatAppearance.BorderSize = 0;
             genreDrama.FlatStyle = FlatStyle.Flat;
             genreDrama.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -294,7 +294,7 @@
             // 
             genreFantasy.Appearance = Appearance.Button;
             genreFantasy.AutoSize = true;
-            genreFantasy.BackColor = Color.BlueViolet;
+            genreFantasy.BackColor = Color.FromArgb(116, 86, 174);
             genreFantasy.FlatAppearance.BorderSize = 0;
             genreFantasy.FlatStyle = FlatStyle.Flat;
             genreFantasy.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -310,7 +310,7 @@
             // 
             genreMystery.Appearance = Appearance.Button;
             genreMystery.AutoSize = true;
-            genreMystery.BackColor = Color.BlueViolet;
+            genreMystery.BackColor = Color.FromArgb(116, 86, 174);
             genreMystery.FlatAppearance.BorderSize = 0;
             genreMystery.FlatStyle = FlatStyle.Flat;
             genreMystery.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -326,7 +326,7 @@
             // 
             genreRomance.Appearance = Appearance.Button;
             genreRomance.AutoSize = true;
-            genreRomance.BackColor = Color.BlueViolet;
+            genreRomance.BackColor = Color.FromArgb(116, 86, 174);
             genreRomance.FlatAppearance.BorderSize = 0;
             genreRomance.FlatStyle = FlatStyle.Flat;
             genreRomance.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -342,7 +342,7 @@
             // 
             genreSciFi.Appearance = Appearance.Button;
             genreSciFi.AutoSize = true;
-            genreSciFi.BackColor = Color.BlueViolet;
+            genreSciFi.BackColor = Color.FromArgb(116, 86, 174);
             genreSciFi.FlatAppearance.BorderSize = 0;
             genreSciFi.FlatStyle = FlatStyle.Flat;
             genreSciFi.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -358,7 +358,7 @@
             // 
             genreThriller.Appearance = Appearance.Button;
             genreThriller.AutoSize = true;
-            genreThriller.BackColor = Color.BlueViolet;
+            genreThriller.BackColor = Color.FromArgb(116, 86, 174);
             genreThriller.FlatAppearance.BorderSize = 0;
             genreThriller.FlatStyle = FlatStyle.Flat;
             genreThriller.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -374,7 +374,7 @@
             // 
             genreHorror.Appearance = Appearance.Button;
             genreHorror.AutoSize = true;
-            genreHorror.BackColor = Color.BlueViolet;
+            genreHorror.BackColor = Color.FromArgb(116, 86, 174);
             genreHorror.FlatAppearance.BorderSize = 0;
             genreHorror.FlatStyle = FlatStyle.Flat;
             genreHorror.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -398,16 +398,16 @@
             // 
             // movDirector
             // 
-            movDirector.Location = new Point(98, 206);
+            movDirector.Location = new Point(113, 206);
             movDirector.Name = "movDirector";
-            movDirector.Size = new Size(289, 23);
+            movDirector.Size = new Size(274, 23);
             movDirector.TabIndex = 33;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.BlueViolet;
+            label8.ForeColor = Color.FromArgb(116, 86, 174);
             label8.Location = new Point(35, 212);
             label8.Name = "label8";
             label8.Size = new Size(57, 15);
@@ -416,16 +416,16 @@
             // 
             // movActors
             // 
-            movActors.Location = new Point(87, 235);
+            movActors.Location = new Point(113, 235);
             movActors.Name = "movActors";
-            movActors.Size = new Size(300, 23);
+            movActors.Size = new Size(274, 23);
             movActors.TabIndex = 35;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.ForeColor = Color.BlueViolet;
+            label9.ForeColor = Color.FromArgb(116, 86, 174);
             label9.Location = new Point(35, 241);
             label9.Name = "label9";
             label9.Size = new Size(46, 15);

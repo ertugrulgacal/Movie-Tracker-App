@@ -210,9 +210,18 @@ namespace Movie_Tracker.User_Controls
 
                 while (sqlDR.Read())
                 {
-                    genresTextBox.AppendText(sqlDR[0].ToString() + ", ");
+                    var label = new Label
+                    {
+                        Name = "labelGenre" + sqlDR[0].ToString(),
+                        Text = sqlDR[0].ToString(),
+                        Padding = new Padding(5),
+                        Margin = new Padding(2),
+                        BackColor = Color.FromArgb(116, 86, 174),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                    };
+                    flwPanelGenres.Controls.Add(label);
                 }
-                genresTextBox.Text = genresTextBox.Text[..^1];
             }
             catch (Exception ex)
             {
@@ -238,7 +247,17 @@ namespace Movie_Tracker.User_Controls
 
                 while (sqlDR.Read())
                 {
-                    directorTextBox.Text = sqlDR[0].ToString();
+                    var label = new Label
+                    {
+                        Name = "labelDirector" + sqlDR[0].ToString(),
+                        Text = sqlDR[0].ToString(),
+                        Padding = new Padding(5),
+                        Margin = new Padding(2),
+                        BackColor = Color.FromArgb(116, 86, 174),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                    };
+                    flwPanelDirector.Controls.Add(label);
                 }
             }
             catch (Exception ex)
@@ -265,9 +284,18 @@ namespace Movie_Tracker.User_Controls
 
                 while (sqlDR.Read())
                 {
-                    actorsTextBox.AppendText(sqlDR[0].ToString() + ", ");
+                    var label = new Label
+                    {
+                        Name = "labelActors" + sqlDR[0].ToString(),
+                        Text = sqlDR[0].ToString(),
+                        Padding = new Padding(5),
+                        Margin = new Padding(2),
+                        BackColor = Color.FromArgb(116, 86, 174),
+                        ForeColor = Color.White,
+                        AutoSize = true,
+                    };
+                    flwPanelActors.Controls.Add(label);
                 }
-                actorsTextBox.Text = actorsTextBox.Text[..^1];
             }
             catch (Exception ex)
             {

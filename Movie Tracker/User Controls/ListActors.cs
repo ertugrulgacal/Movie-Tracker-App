@@ -3,65 +3,36 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.DirectoryServices;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Movie_Tracker.User_Controls
 {
-    public partial class ListSearchedMovies : UserControl
+    public partial class ListActors : UserControl
     {
         private string _searchString;
-        private string _sortOption;
 
-        public ListSearchedMovies()
+        public ListActors()
         {
             InitializeComponent();
         }
 
-        public ListSearchedMovies(string searchString, string sortOption) : this()
+        public ListActors(string searchString) : this()
         {
             _searchString = searchString;
-
-            if (sortOption == "Popularity")
-            {
-                _sortOption = "vote_count";
-            }
-            else if (sortOption == "Rating")
-            {
-                _sortOption = "vote_average";
-            }
-            else if (sortOption == "Year")
-            {
-                _sortOption = "mov_year";
-            }
-            else if (sortOption == "Name")
-            {
-                _sortOption = "mov_title";
-            }
-            else if (sortOption == "Length")
-            {
-                _sortOption = "mov_length";
-            }
         }
 
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KB41T07;Initial Catalog=DbMovieTracker;Integrated Security=True");
 
-        private void FormTest_Load(object sender, EventArgs e)
-        {
-            LoadAndListMovies(_sortOption);
-        }
-
-        private void LoadAndListMovies(string sortOption)
+        private void LoadAndListActors(string sortOption)
         {
             try
             {
                 con.Open();
-                string sqlQuery = "SELECT mov_id, mov_poster FROM TableMovie WHERE mov_title LIKE '%" + _searchString + "%' ORDER BY " + sortOption;
+                string sqlQuery = "SELECT TableMovie.mov_id, mov_poster FROM TableMovie INNER JOIN TableMovieCast ON TableMovie.mov_id=TableMovieCast.mov_id INNER JOIN TableActor ON TableMovieCast.act_id=TableActor.act_id WHERE act_name LIKE '%" + _searchString + "%'";
                 SqlCommand sqlCommand = new SqlCommand(sqlQuery, con);
                 SqlDataReader sqlDR = sqlCommand.ExecuteReader();
 
@@ -118,32 +89,9 @@ namespace Movie_Tracker.User_Controls
             mainForm.addUserControl(uc);
         }
 
-        /*private void sortOptions_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListActors_Load(object sender, EventArgs e)
         {
-            string sortOption = "";
-
-            if (sortOptions.Text == "Popularity")
-            {
-                sortOption = "vote_count";
-            }
-            else if (sortOptions.Text == "Rating")
-            {
-                sortOption = "vote_average";
-            }
-            else if (sortOptions.Text == "Year")
-            {
-                sortOption = "mov_year";
-            }
-            else if (sortOptions.Text == "Name")
-            {
-                sortOption = "mov_title";
-            }
-            else if (sortOptions.Text == "Length")
-            {
-                sortOption = "mov_length";
-            }
-
-            LoadAndListMovies(sortOption);
-        }*/
+            LoadAndListActors(_searchString);
+        }
     }
 }

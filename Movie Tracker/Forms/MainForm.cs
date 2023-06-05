@@ -7,6 +7,7 @@ public partial class MainForm : Form
 {
     private Button currentButton;
     //private Form activeForm;
+    private bool _actorsIsEnabled = false;
 
     public MainForm()
     {
@@ -82,6 +83,7 @@ public partial class MainForm : Form
         ListMovies uc = new ListMovies();
         addUserControl(uc);
         menuTitle.Text = "HOME";
+        _actorsIsEnabled = false;
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -90,6 +92,7 @@ public partial class MainForm : Form
         ListWatched uc = new ListWatched();
         addUserControl(uc);
         menuTitle.Text = "HISTORY";
+        _actorsIsEnabled = false;
     }
 
     private void button3_Click(object sender, EventArgs e)
@@ -98,11 +101,15 @@ public partial class MainForm : Form
         listWatchlist uc = new listWatchlist();
         addUserControl(uc);
         menuTitle.Text = "WATCHLIST";
+        _actorsIsEnabled = false;
     }
 
     private void button4_Click(object sender, EventArgs e)
     {
-        menuTitle.Text = "FRIENDS";
+        ListActors uc = new ListActors(" ");
+        addUserControl(uc);
+        menuTitle.Text = "ACTORS";
+        _actorsIsEnabled = uc.Enabled;
     }
 
     private void button5_Click(object sender, EventArgs e)
@@ -112,6 +119,7 @@ public partial class MainForm : Form
             AdminAddMovie uc = new AdminAddMovie();
             addUserControl(uc);
             menuTitle.Text = "ADMIN";
+            _actorsIsEnabled = false;
         }
         else
         {
@@ -120,11 +128,24 @@ public partial class MainForm : Form
 
     }
 
+    private void ExecuteSearch()
+    {
+        if (_actorsIsEnabled)
+        {
+            ListActors uc = new ListActors(searchBar.Text);
+            addUserControl(uc);
+        }
+        else
+        {
+            ListSearchedMovies uc = new ListSearchedMovies(searchBar.Text, sortOptions.Text);
+            addUserControl(uc);
+            menuTitle.Text = "SEARCH";
+        }
+    }
+
     private void searchBar_TextChanged(object sender, EventArgs e)
     {
-        ListSearchedMovies uc = new ListSearchedMovies(searchBar.Text);
-        addUserControl(uc);
-        menuTitle.Text = "SEARCH";
+        ExecuteSearch();
     }
 
     private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -157,9 +178,16 @@ public partial class MainForm : Form
 
     private void MainForm_Load(object sender, EventArgs e)
     {
+        sortOptions.Text = "Popularity";
+
         if (!String.Equals(Program.userID, "1"))
         {
             //button5.Visible = false;
         }
+    }
+
+    private void sortOptions_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ExecuteSearch();
     }
 }

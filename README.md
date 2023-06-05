@@ -1,0 +1,5 @@
+![alt text](./Screenshots/ss1.png "Homepage")
+![alt text](./Screenshots/ss2.png "Search Movie")
+![alt text](./Screenshots/ss3.png "Movie Page")
+![alt text](./Screenshots/ss4.png "Reviews")
+![alt text](./Screenshots/ss5.png "Watchlist")

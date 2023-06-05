@@ -40,11 +40,11 @@
             movieRating = new Label();
             movieReviewCount = new TextBox();
             label1 = new Label();
-            genresTextBox = new RichTextBox();
             label2 = new Label();
             label3 = new Label();
-            directorTextBox = new RichTextBox();
-            actorsTextBox = new RichTextBox();
+            flwPanelGenres = new FlowLayoutPanel();
+            flwPanelDirector = new FlowLayoutPanel();
+            flwPanelActors = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)moviePoster).BeginInit();
             SuspendLayout();
             // 
@@ -92,7 +92,7 @@
             // 
             movieUserWatched.Appearance = Appearance.Button;
             movieUserWatched.AutoSize = true;
-            movieUserWatched.BackColor = Color.BlueViolet;
+            movieUserWatched.BackColor = Color.FromArgb(116, 86, 174);
             movieUserWatched.FlatAppearance.BorderSize = 0;
             movieUserWatched.FlatStyle = FlatStyle.Flat;
             movieUserWatched.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -109,7 +109,7 @@
             // 
             movieUserWatchlist.Appearance = Appearance.Button;
             movieUserWatchlist.AutoSize = true;
-            movieUserWatchlist.BackColor = Color.BlueViolet;
+            movieUserWatchlist.BackColor = Color.FromArgb(116, 86, 174);
             movieUserWatchlist.FlatStyle = FlatStyle.Flat;
             movieUserWatchlist.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             movieUserWatchlist.ForeColor = Color.White;
@@ -123,7 +123,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.BlueViolet;
+            button1.BackColor = Color.FromArgb(116, 86, 174);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
@@ -140,7 +140,7 @@
             label4.AutoSize = true;
             label4.Cursor = Cursors.Hand;
             label4.Font = new Font("Nirmala UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
-            label4.ForeColor = Color.BlueViolet;
+            label4.ForeColor = Color.FromArgb(116, 86, 174);
             label4.Location = new Point(551, 192);
             label4.Name = "label4";
             label4.Size = new Size(82, 15);
@@ -162,7 +162,7 @@
             // 
             movieRating.AutoSize = true;
             movieRating.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            movieRating.ForeColor = Color.BlueViolet;
+            movieRating.ForeColor = Color.FromArgb(116, 86, 174);
             movieRating.Location = new Point(527, 222);
             movieRating.Name = "movieRating";
             movieRating.Size = new Size(132, 30);
@@ -189,17 +189,6 @@
             label1.TabIndex = 25;
             label1.Text = "Genres:";
             // 
-            // genresTextBox
-            // 
-            genresTextBox.BackColor = SystemColors.Control;
-            genresTextBox.BorderStyle = BorderStyle.None;
-            genresTextBox.Location = new Point(94, 283);
-            genresTextBox.Name = "genresTextBox";
-            genresTextBox.ReadOnly = true;
-            genresTextBox.Size = new Size(406, 25);
-            genresTextBox.TabIndex = 26;
-            genresTextBox.Text = "";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -220,37 +209,36 @@
             label3.TabIndex = 28;
             label3.Text = "Actors:";
             // 
-            // directorTextBox
+            // flwPanelGenres
             // 
-            directorTextBox.BackColor = SystemColors.Control;
-            directorTextBox.BorderStyle = BorderStyle.None;
-            directorTextBox.Location = new Point(106, 321);
-            directorTextBox.Name = "directorTextBox";
-            directorTextBox.ReadOnly = true;
-            directorTextBox.Size = new Size(200, 25);
-            directorTextBox.TabIndex = 29;
-            directorTextBox.Text = "";
+            flwPanelGenres.Location = new Point(109, 277);
+            flwPanelGenres.Name = "flwPanelGenres";
+            flwPanelGenres.Size = new Size(561, 33);
+            flwPanelGenres.TabIndex = 31;
             // 
-            // actorsTextBox
+            // flwPanelDirector
             // 
-            actorsTextBox.BackColor = SystemColors.Control;
-            actorsTextBox.BorderStyle = BorderStyle.None;
-            actorsTextBox.Location = new Point(93, 362);
-            actorsTextBox.Name = "actorsTextBox";
-            actorsTextBox.ReadOnly = true;
-            actorsTextBox.Size = new Size(406, 25);
-            actorsTextBox.TabIndex = 30;
-            actorsTextBox.Text = "";
+            flwPanelDirector.Location = new Point(109, 318);
+            flwPanelDirector.Name = "flwPanelDirector";
+            flwPanelDirector.Size = new Size(561, 33);
+            flwPanelDirector.TabIndex = 32;
+            // 
+            // flwPanelActors
+            // 
+            flwPanelActors.Location = new Point(109, 357);
+            flwPanelActors.Name = "flwPanelActors";
+            flwPanelActors.Size = new Size(561, 33);
+            flwPanelActors.TabIndex = 33;
             // 
             // MoviePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(actorsTextBox);
-            Controls.Add(directorTextBox);
+            Controls.Add(flwPanelActors);
+            Controls.Add(flwPanelDirector);
+            Controls.Add(flwPanelGenres);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(genresTextBox);
             Controls.Add(label1);
             Controls.Add(movieReviewCount);
             Controls.Add(movieRating);
@@ -284,10 +272,10 @@
         private Label movieRating;
         private TextBox movieReviewCount;
         private Label label1;
-        private RichTextBox genresTextBox;
         private Label label2;
         private Label label3;
-        private RichTextBox directorTextBox;
-        private RichTextBox actorsTextBox;
+        private FlowLayoutPanel flwPanelGenres;
+        private FlowLayoutPanel flwPanelDirector;
+        private FlowLayoutPanel flwPanelActors;
     }
 }

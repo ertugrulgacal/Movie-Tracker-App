@@ -42,7 +42,7 @@
             // 
             label4.AutoSize = true;
             label4.Cursor = Cursors.Hand;
-            label4.ForeColor = Color.BlueViolet;
+            label4.ForeColor = Color.FromArgb(116, 86, 174);
             label4.Location = new Point(92, 355);
             label4.Name = "label4";
             label4.Size = new Size(152, 17);
@@ -52,7 +52,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.BlueViolet;
+            button1.BackColor = Color.FromArgb(116, 86, 174);
             button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
@@ -123,7 +123,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("MS UI Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.BlueViolet;
+            label1.ForeColor = Color.FromArgb(116, 86, 174);
             label1.Location = new Point(57, 86);
             label1.Name = "label1";
             label1.Size = new Size(155, 27);
